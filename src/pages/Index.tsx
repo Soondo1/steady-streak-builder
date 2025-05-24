@@ -8,6 +8,23 @@ import { Calendar, Target, TrendingUp, Clock, CheckCircle, Star } from 'lucide-r
 import OnboardingFlow from '@/components/OnboardingFlow';
 import HabitDashboard from '@/components/HabitDashboard';
 import ProgressTracker from '@/components/ProgressTracker';
+import { createclient } from '@/ultis/superbase/server';
+import { cookies } from 'next/headers';
+
+export default async function Page() {
+  const cookieStore = await cookies()
+  const supabase = createClient(cookieStore)
+
+  const { data: todos } = await supabase.from('todos').select()
+
+  return (
+    <ul>
+      {todos?.map((todo) => (
+        <li>{todo}</li>
+      ))}
+    </ul>
+  )
+}
 
 const Index = () => {
   const [currentUser, setCurrentUser] = useState(null);

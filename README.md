@@ -12,7 +12,76 @@ There are several ways of editing your application.
 
 Simply visit the [Lovable Project](https://lovable.dev/projects/4c2bd95a-1933-4c68-a4a8-eab6fbaa5966) and start prompting.
 
-Changes made via Lovable will be committed automatically to this repo.
+Changes made via Lovable will be committed auto# Steady Streak Builder
+
+A React-based application that helps developers maintain and track their coding streaks. Built to encourage consistent coding habits and daily progress tracking.
+
+## Features
+
+- 📊 Daily coding streak tracking
+- 🎯 Goal setting and progress visualization
+- 📅 Calendar view of coding activity
+- 🏆 Achievement system for milestone tracking
+- 📱 Responsive design for mobile and desktop
+
+## Tech Stack
+
+This project is built with modern web technologies:
+
+- **Vite** - Next generation frontend tooling
+- **React** - UI component library
+- **TypeScript** - Type-safe JavaScript
+- **shadcn-ui** - Reusable component system
+- **Tailwind CSS** - Utility-first CSS framework
+
+## Getting Started
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/steady-streak-builder.git
+```
+
+2. Install dependencies:
+```bash
+cd steady-streak-builder
+npm install
+```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+The application will be available at `http://localhost:5173`
+
+## Development
+
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm (v7 or higher)
+
+### Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+- `npm run test` - Run tests
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.matically to this repo.
 
 **Use your preferred IDE**
 
@@ -71,3 +140,77 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+# Steady Streak Builder
+
+A React-based application that helps developers maintain and track their coding streaks. Built to encourage consistent coding habits and daily progress tracking.
+
+## Features
+
+- 📊 Daily coding streak tracking
+- 🎯 Goal setting and progress visualization
+- 📅 Calendar view of coding activity
+- 🏆 Achievement system for milestone tracking
+- 📱 Responsive design for mobile and desktop
+
+## Tech Stack
+
+This project is built with modern web technologies:
+
+- **Vite** - Next generation frontend tooling
+- **React** - UI component library
+- **TypeScript** - Type-safe JavaScript
+- **shadcn-ui** - Reusable component system
+- **Tailwind CSS** - Utility-first CSS framework
+
+## Getting Started
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/yourusername/steady-streak-builder.git
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   cd steady-streak-builder
+   npm install
+   ```
+
+3. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+   The application will be available at `http://localhost:5173`
+
+## Development
+
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm (v7 or higher)
+
+### Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
+- `npm run test` - Run tests
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
