@@ -1,216 +1,101 @@
-# Welcome to your Lovable project
+# One Step at a Time - Habit Building App
 
-## Project info
+A progressive habit-building platform that helps users develop habits based on their current capacity, following a scientifically-backed approach to habit formation.
 
-**URL**: https://lovable.dev/projects/4c2bd95a-1933-4c68-a4a8-eab6fbaa5966
+## About the Project
 
-## How can I edit this code?
+"One Step at a Time" is designed to help users build lasting habits through a progressive four-phase workflow system:
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/4c2bd95a-1933-4c68-a4a8-eab6fbaa5966) and start prompting.
-
-Changes made via Lovable will be committed auto# Steady Streak Builder
-
-A React-based application that helps developers maintain and track their coding streaks. Built to encourage consistent coding habits and daily progress tracking.
-
-## Features
-
-- 📊 Daily coding streak tracking
-- 🎯 Goal setting and progress visualization
-- 📅 Calendar view of coding activity
-- 🏆 Achievement system for milestone tracking
-- 📱 Responsive design for mobile and desktop
+1. **Baseline**: Determine your current maximum capacity for a habit
+2. **Kickstart**: Start with 75% of your baseline for 5 days to build consistency
+3. **Progressive Build**: Gradually increase the intensity as you get stronger
+4. **Optimization**: Maintain the habit and track advanced metrics
 
 ## Tech Stack
 
-This project is built with modern web technologies:
-
-- **Vite** - Next generation frontend tooling
-- **React** - UI component library
-- **TypeScript** - Type-safe JavaScript
-- **shadcn-ui** - Reusable component system
-- **Tailwind CSS** - Utility-first CSS framework
+- **Frontend**: React with TypeScript
+- **UI**: Tailwind CSS with ShadCN components
+- **Backend**: Supabase (Authentication, Database, Storage)
+- **Hosting**: Vercel
 
 ## Getting Started
 
-1. Clone the repository:
+### Prerequisites
+
+- Node.js (v16+)
+- npm or bun
+- Supabase account
+
+### Installation
+
+1. Clone the repository
 ```bash
 git clone https://github.com/yourusername/steady-streak-builder.git
-```
-
-2. Install dependencies:
-```bash
 cd steady-streak-builder
-npm install
 ```
 
-3. Start the development server:
+2. Install dependencies
+```bash
+npm install
+# or
+bun install
+```
+
+3. Create a `.env.local` file in the root directory and add your Supabase credentials:
+```
+VITE_SUPABASE_URL=your_supabase_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+```
+
+4. Start the development server
 ```bash
 npm run dev
+# or
+bun dev
 ```
 
-The application will be available at `http://localhost:5173`
+### Setting Up Supabase
 
-## Development
-
-### Prerequisites
-
-- Node.js (v16 or higher)
-- npm (v7 or higher)
-
-### Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
-- `npm run test` - Run tests
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.matically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/4c2bd95a-1933-4c68-a4a8-eab6fbaa5966) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
-
-# Steady Streak Builder
-
-A React-based application that helps developers maintain and track their coding streaks. Built to encourage consistent coding habits and daily progress tracking.
+1. Create a new Supabase project
+2. Run the SQL migrations in `supabase/migrations` to set up the database schema
+3. Configure authentication providers (Email, Google, etc.)
 
 ## Features
 
-- 📊 Daily coding streak tracking
-- 🎯 Goal setting and progress visualization
-- 📅 Calendar view of coding activity
-- 🏆 Achievement system for milestone tracking
-- 📱 Responsive design for mobile and desktop
+- **User Authentication**: Sign up, log in, and manage user accounts
+- **Habit Creation**: Set up new habits with baseline measurements
+- **Daily Check-ins**: Track progress with daily habit completions
+- **Progress Tracking**: Visualize growth and consistency over time
+- **Phase Progression**: Automatically advance through the habit-building phases
 
-## Tech Stack
+## Project Structure
 
-This project is built with modern web technologies:
-
-- **Vite** - Next generation frontend tooling
-- **React** - UI component library
-- **TypeScript** - Type-safe JavaScript
-- **shadcn-ui** - Reusable component system
-- **Tailwind CSS** - Utility-first CSS framework
-
-## Getting Started
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/yourusername/steady-streak-builder.git
-   ```
-
-2. Install dependencies:
-
-   ```bash
-   cd steady-streak-builder
-   npm install
-   ```
-
-3. Start the development server:
-
-   ```bash
-   npm run dev
-   ```
-
-   The application will be available at `http://localhost:5173`
-
-## Development
-
-### Prerequisites
-
-- Node.js (v16 or higher)
-- npm (v7 or higher)
-
-### Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
-- `npm run test` - Run tests
+```
+steady-streak-builder/
+├── public/          # Static assets
+├── src/
+│   ├── components/  # React components
+│   │   └── ui/      # UI components from ShadCN
+│   ├── contexts/    # Context providers
+│   ├── hooks/       # Custom React hooks
+│   ├── integrations/# External service integrations
+│   │   └── supabase/# Supabase client and types
+│   ├── lib/         # Utility libraries
+│   └── pages/       # Page components
+├── supabase/        # Supabase configuration and migrations
+└── utils/          # Utility functions
+```
 
 ## Contributing
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- ShadCN UI for the component library
+- Supabase for the backend services
+- The habit-building research community for the science behind the approach

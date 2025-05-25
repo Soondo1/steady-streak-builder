@@ -1,19 +1,23 @@
-
 import React, { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Progress } from '@/components/ui/progress';
 import { CheckCircle, Circle, Target, Clock, TrendingUp, Play, Pause } from 'lucide-react';
+import { HabitData } from './OnboardingFlow';
 
-const HabitDashboard = ({ habit }) => {
+interface HabitDashboardProps {
+  habit: HabitData | null;
+}
+
+const HabitDashboard: React.FC<HabitDashboardProps> = ({ habit }) => {
   const [completedToday, setCompletedToday] = useState(0);
   const [isActive, setIsActive] = useState(false);
 
   if (!habit) return null;
 
   const handleCompleteSession = () => {
-    if (completedToday < habit.setsPerDay) {
+    if (completedToday < (habit.setsPerDay || 2)) {
       setCompletedToday(prev => prev + 1);
     }
   };
@@ -26,7 +30,7 @@ const HabitDashboard = ({ habit }) => {
           description: 'Building consistency with 75% effort',
           color: 'blue',
           icon: Play,
-          daysRemaining: 5 - habit.currentDay + 1
+          daysRemaining: 5 - (habit.currentDay || 1) + 1
         };
       case 'progressive':
         return {
@@ -56,7 +60,7 @@ const HabitDashboard = ({ habit }) => {
   };
 
   const phaseInfo = getPhaseInfo();
-  const todayProgress = (completedToday / habit.setsPerDay) * 100;
+  const todayProgress = (completedToday / (habit.setsPerDay || 2)) * 100;
 
   return (
     <div className="space-y-6">
@@ -70,7 +74,7 @@ const HabitDashboard = ({ habit }) => {
                 <phaseInfo.icon className="w-3 h-3 mr-1" />
                 {phaseInfo.name}
               </Badge>
-              <span className="text-sm text-gray-600">Day {habit.currentDay}</span>
+              <span className="text-sm text-gray-600">Day {habit.currentDay || 1}</span>
             </div>
           </div>
           <div className="text-right">
@@ -94,8 +98,8 @@ const HabitDashboard = ({ habit }) => {
       <Card className="p-6">
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-xl font-semibold text-gray-800">Today's Sessions</h3>
-          <Badge variant={completedToday === habit.setsPerDay ? "default" : "secondary"}>
-            {completedToday}/{habit.setsPerDay} completed
+          <Badge variant={completedToday === (habit.setsPerDay || 2) ? "default" : "secondary"}>
+            {completedToday}/{habit.setsPerDay || 2} completed
           </Badge>
         </div>
         
@@ -103,7 +107,7 @@ const HabitDashboard = ({ habit }) => {
           <Progress value={todayProgress} className="h-3" />
           
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {Array.from({ length: habit.setsPerDay }, (_, i) => (
+            {Array.from({ length: habit.setsPerDay || 2 }, (_, i) => (
               <div
                 key={i}
                 className={`p-4 rounded-lg border-2 transition-all duration-200 ${
@@ -132,7 +136,7 @@ const HabitDashboard = ({ habit }) => {
           <div className="flex space-x-3">
             <Button
               onClick={handleCompleteSession}
-              disabled={completedToday >= habit.setsPerDay}
+              disabled={completedToday >= (habit.setsPerDay || 2)}
               className="flex-1 bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700"
             >
               <CheckCircle className="w-4 h-4 mr-2" />

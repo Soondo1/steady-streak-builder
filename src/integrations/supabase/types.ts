@@ -9,7 +9,144 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      habits: {
+        Row: {
+          id: string
+          user_id: string
+          name: string
+          type: string
+          baseline: number
+          unit: string
+          goal: string | null
+          kickstart_value: number
+          current_phase: string
+          current_day: number
+          sets_per_day: number
+          created_at: string
+          updated_at: string | null
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          name: string
+          type: string
+          baseline: number
+          unit: string
+          goal?: string | null
+          kickstart_value: number
+          current_phase: string
+          current_day: number
+          sets_per_day: number
+          created_at?: string
+          updated_at?: string | null
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          name?: string
+          type?: string
+          baseline?: number
+          unit?: string
+          goal?: string | null
+          kickstart_value?: number
+          current_phase?: string
+          current_day?: number
+          sets_per_day?: number
+          created_at?: string
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "habits_user_id_fkey"
+            columns: ["user_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      check_ins: {
+        Row: {
+          id: string
+          habit_id: string
+          user_id: string
+          completed: boolean
+          actual_value: number | null
+          mood: string | null
+          notes: string | null
+          date: string
+          created_at: string
+        }
+        Insert: {
+          id?: string
+          habit_id: string
+          user_id: string
+          completed: boolean
+          actual_value?: number | null
+          mood?: string | null
+          notes?: string | null
+          date?: string
+          created_at?: string
+        }
+        Update: {
+          id?: string
+          habit_id?: string
+          user_id?: string
+          completed?: boolean
+          actual_value?: number | null
+          mood?: string | null
+          notes?: string | null
+          date?: string
+          created_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "check_ins_habit_id_fkey"
+            columns: ["habit_id"]
+            referencedRelation: "habits"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "check_ins_user_id_fkey"
+            columns: ["user_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
+      user_profiles: {
+        Row: {
+          id: string
+          user_id: string
+          display_name: string | null
+          avatar_url: string | null
+          created_at: string
+          updated_at: string | null
+        }
+        Insert: {
+          id?: string
+          user_id: string
+          display_name?: string | null
+          avatar_url?: string | null
+          created_at?: string
+          updated_at?: string | null
+        }
+        Update: {
+          id?: string
+          user_id?: string
+          display_name?: string | null
+          avatar_url?: string | null
+          created_at?: string
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_profiles_user_id_fkey"
+            columns: ["user_id"]
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
     }
     Views: {
       [_ in never]: never

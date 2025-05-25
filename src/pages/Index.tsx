@@ -1,37 +1,25 @@
-
 import React, { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Target, TrendingUp, Clock, CheckCircle, Star } from 'lucide-react';
-import OnboardingFlow from '@/components/OnboardingFlow';
+import OnboardingFlow, { HabitData } from '@/components/OnboardingFlow';
 import HabitDashboard from '@/components/HabitDashboard';
 import ProgressTracker from '@/components/ProgressTracker';
-import { createclient } from '@/ultis/superbase/server';
-import { cookies } from 'next/headers';
 
-export default async function Page() {
-  const cookieStore = await cookies()
-  const supabase = createClient(cookieStore)
-
-  const { data: todos } = await supabase.from('todos').select()
-
-  return (
-    <ul>
-      {todos?.map((todo) => (
-        <li>{todo}</li>
-      ))}
-    </ul>
-  )
+// Define types for our data
+interface User {
+  name: string;
+  joinDate: Date;
 }
 
 const Index = () => {
-  const [currentUser, setCurrentUser] = useState(null);
-  const [activeHabit, setActiveHabit] = useState(null);
+  const [currentUser, setCurrentUser] = useState<User | null>(null);
+  const [activeHabit, setActiveHabit] = useState<HabitData | null>(null);
   const [showOnboarding, setShowOnboarding] = useState(true);
 
-  const handleOnboardingComplete = (habitData) => {
+  const handleOnboardingComplete = (habitData: HabitData) => {
     setActiveHabit(habitData);
     setShowOnboarding(false);
     setCurrentUser({ name: 'User', joinDate: new Date() });
@@ -53,9 +41,9 @@ const Index = () => {
               </div>
               <div>
                 <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  HabitFlow
+                  One Step at a Time
                 </h1>
-                <p className="text-sm text-gray-500">Workflow-Based Habit Building</p>
+                <p className="text-sm text-gray-500">Progressive Habit Building</p>
               </div>
             </div>
             <div className="flex items-center space-x-4">

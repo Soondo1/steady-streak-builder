@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -9,9 +8,28 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight, Target, Clock, TrendingUp, CheckCircle } from 'lucide-react';
 
-const OnboardingFlow = ({ onComplete }) => {
+// Define types for the component
+export interface HabitData {
+  name: string;
+  type: string;
+  baseline: number;
+  unit: string;
+  goal: string;
+  kickstartValue?: number;
+  currentPhase?: string;
+  currentDay?: number;
+  setsPerDay?: number;
+  completedSessions?: any[];
+  startDate?: Date;
+}
+
+interface OnboardingFlowProps {
+  onComplete: (habitData: HabitData) => void;
+}
+
+const OnboardingFlow: React.FC<OnboardingFlowProps> = ({ onComplete }) => {
   const [step, setStep] = useState(1);
-  const [habitData, setHabitData] = useState({
+  const [habitData, setHabitData] = useState<HabitData>({
     name: '',
     type: '',
     baseline: 0,
@@ -47,7 +65,7 @@ const OnboardingFlow = ({ onComplete }) => {
     }
   };
 
-  const updateHabitData = (field, value) => {
+  const updateHabitData = (field: keyof HabitData, value: string | number) => {
     setHabitData(prev => ({ ...prev, [field]: value }));
   };
 

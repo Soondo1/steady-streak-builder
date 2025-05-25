@@ -1,10 +1,14 @@
-
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, TrendingUp, Target, CheckCircle } from 'lucide-react';
+import { HabitData } from './OnboardingFlow';
 
-const ProgressTracker = ({ habit }) => {
+interface ProgressTrackerProps {
+  habit: HabitData | null;
+}
+
+const ProgressTracker: React.FC<ProgressTrackerProps> = ({ habit }) => {
   if (!habit) return null;
 
   // Generate calendar view for current week
@@ -83,7 +87,7 @@ const ProgressTracker = ({ habit }) => {
           <div className="flex justify-between items-center">
             <span className="text-purple-700">Total Volume</span>
             <div className="text-right">
-              <div className="font-semibold text-purple-800">{habit.kickstartValue * 8}</div>
+              <div className="font-semibold text-purple-800">{(habit.kickstartValue || 0) * 8}</div>
               <div className="text-xs text-purple-600">{habit.unit} completed</div>
             </div>
           </div>
